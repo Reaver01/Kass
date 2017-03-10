@@ -4,7 +4,7 @@ module Bot
     module JoinRole
       extend Discordrb::Commands::CommandContainer
       command(
-        :joinable,
+        :join,
         description: 'Join a joinable role.',
         usage: 'join <role_name>',
         min_args: 1
