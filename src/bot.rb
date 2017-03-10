@@ -4,7 +4,6 @@ require 'discordrb/data'
 require 'dotenv'
 require 'fileutils'
 require 'rufus-scheduler'
-require 'easy_translate'
 
 # The main bot module
 module Bot
@@ -19,9 +18,6 @@ module Bot
 
   # Set Prefix
   PREFIX = ':'.freeze
-
-  # Set Translate API key
-  EasyTranslate.api_key = ENV['TRANSLATE']
 
   # Load Modules
   Dir['src/modules/*.rb'].each { |file| load file }
