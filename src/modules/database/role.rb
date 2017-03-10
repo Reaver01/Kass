@@ -16,6 +16,17 @@ module Bot
           true
         end
       end
+
+      def toggle_user_can_add
+        status = user_can_add
+        if status
+          update(user_can_add: false)
+          false
+        else
+          update(user_can_add: true)
+          true
+        end
+      end
     end
   end
 end
