@@ -6,7 +6,7 @@ module Bot
       command(
         :softban,
         description: 'Kick a user and remove their message history',
-        usage: 'welcome',
+        usage: 'softban <@user>',
         required_permissions: [:kick_members],
         permission_message: 'Only someone who can already kick a user can use %name%'
       ) do |event, mention|
