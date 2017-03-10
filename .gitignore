@@ -1,0 +1,13 @@
+.bundle
+.env
+.lock
+.sqlite3
+.yardoc
+/log
+/run.sh
+/Gemfile.lock
+bin
+botfiles
+doc
+userbase
+vendor

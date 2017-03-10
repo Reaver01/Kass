@@ -1,0 +1,14 @@
+module Bot
+  module Commands
+    # Command Name
+    module Name
+      extend Discordrb::Commands::CommandContainer
+      command(
+        :name
+      ) do |_event|
+        Database::CommandLog.resolve_name('Name').log
+        # Do things here
+      end
+    end
+  end
+end
