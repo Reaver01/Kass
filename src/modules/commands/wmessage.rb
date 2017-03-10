@@ -6,7 +6,7 @@ module Bot
       command(
         :wmessage,
         description: 'Set server welcome message',
-        usage: 'wmessage',
+        usage: 'wmessage <message>',
         required_permissions: [:administrator],
         permission_message: 'Only an admin can use %name%'
       ) do |event, *message|
