@@ -5,7 +5,7 @@ module Bot
       extend Discordrb::Commands::CommandContainer
       command(
         :comp
-      ) do |_event, option, *search|
+      ) do |event, option, *search|
         search = search.join(' ').downcase
         Database::CommandLog.resolve_name('Compendium').log
         if option == 'mat'
