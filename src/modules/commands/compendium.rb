@@ -13,7 +13,7 @@ module Bot
           if found_item.nil?
             'Item not found.'
           else
-            event.channel.send_embed found_item.info_embed
+            event.channel.send_embed 'I found this in the Hyrule Compendium:', found_item.info_embed
           end
         end
       end
