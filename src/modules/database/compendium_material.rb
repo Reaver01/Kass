@@ -25,9 +25,11 @@ module Bot
           url: image
         }
         embed.description = ''
-        embed.description += "**Description**\n#{description}" unless description.nil?
-        embed.description += "**Common Locations**\n"
-        locations.each { |l| embed.description += "#{l.name.titleize}\n" }
+        embed.description += "**Description**\n#{description}\n" unless description.nil?
+        unless locations.length.zero?
+          embed.description += "**Common Locations**\n"
+          locations.each { |l| embed.description += "#{l.name.titleize}\n" }
+        end
         embed.description += "**Hearts Recovered**\n#{hearts.round(2)}\n" unless hearts.zero?
         unless effects.length.zero?
           embed.description += "**Cooking Effects**\n"
