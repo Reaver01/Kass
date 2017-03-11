@@ -24,9 +24,15 @@ module Bot
         embed.thumbnail = {
           url: image
         }
-        embed.description = "**Description**\n#{description}" \
-          "**Common Locations**\n"
+        embed.description = ''
+        embed.description += "**Description**\n#{description}" unless description.nil?
+        embed.description += "**Common Locations**\n"
         locations.each { |l| embed.description += "#{l.name.titleize}\n" }
+        embed.description += "**Hearts Recovered**\n#{hearts}\n" unless hearts.zero?
+        unless effects.length.zero?
+          embed.description += "**Cooking Effects**\n"
+          effects.each { |e| embed.description += "#{e.name.titleize}\n" }
+        end
         embed.timestamp = Time.now
         embed
       end
