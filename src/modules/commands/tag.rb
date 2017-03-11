@@ -11,8 +11,9 @@ module Bot
         Database::CommandLog.resolve_name('Tag').log
         if args[0] == 'create'
           if Database::Tag.resolve_name(args[1]).tag_message.nil?
-            message = args.last args.size - 2
-            Database::Tag.resolve_name(args[1]).update_tag message.join(' ')
+            message = event.message.content.gsub!(/.*?(?=create)/im, '')
+            message.slice!(0..(7 + args[1].length))
+            Database::Tag.resolve_name(args[1]).update_tag message
             Database::Tag.resolve_name(args[1]).update_owner event.user.id
             Database::Tag.resolve_name(args[1]).tag_message
           else
@@ -21,12 +22,13 @@ module Bot
           end
         elsif args[0] == 'edit'
           if Database::Tag.resolve_name(args[1]).owner_id == event.user.id
-            message = args.last args.size - 2
-            Database::Tag.resolve_name(args[1]).update_tag message.join(' ')
+            message = event.message.content.gsub!(/.*?(?=edit)/im, '')
+            message.slice!(0..(5 + args[1].length))
+            Database::Tag.resolve_name(args[1]).update_tag message
             Database::Tag.resolve_name(args[1]).tag_message
           elsif Database::Tag.resolve_name(args[1]).tag_message.nil?
             message = args.last args.size - 2
-            Database::Tag.resolve_name(args[1]).update_tag message.join(' ')
+            Database::Tag.resolve_name(args[1]).update_tag message
             Database::Tag.resolve_name(args[1]).tag_message
           else
             "You can't edit someone else's tag."
