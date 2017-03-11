@@ -1,3 +1,5 @@
+require 'titleize'
+
 module Bot
   module Database
     # Player table
@@ -14,6 +16,19 @@ module Bot
 
       def self.resolve_id(id)
         find_or_create(item_id: id)
+      end
+
+      def info_embed
+        embed = Discordrb::Webhooks::Embed.new
+        embed.title = "#{item_id} #{name.titleize}"
+        embed.thumbnail = {
+          url: image
+        }
+        embed.description = "**Description**\n#{description}" \
+          "**Common Locations**\n"
+        locations.each { |l| embed.description += "#{l.name.titleize}\n" }
+        embed.timestamp = Time.now
+        embed
       end
     end
   end
