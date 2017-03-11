@@ -29,7 +29,7 @@ module Bot
       end
 
       message(containing: 'Under a Red Moon') do |event|
-        event.respond "\"When the moon bleeds and the fiends are reborn\nThe noks will invite you" \
+        event.respond "\"When the moon bleeds and the fiends are reborn\nThe monk will invite you" \
           " as they have sworn.\nBut first you must stand on the pedestal bare\nWith nothing betw" \
           'een you and the night air."'
       end
