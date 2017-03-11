@@ -6,7 +6,8 @@ module Bot
       command(
         [:tag, :t],
         description: 'displays a created tag',
-        usage: 'tag <name> || tag create/edit <name> <contents> || tag delete <name>'
+        usage: 'tag <name> || tag create/edit <name> <contents> || tag delete <name> || tag overr' \
+          'ide <name> <contents>'
       ) do |event, *args|
         Database::CommandLog.resolve_name('Tag').log
         if args[0] == 'create'

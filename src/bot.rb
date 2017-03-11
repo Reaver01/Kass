@@ -17,7 +17,7 @@ module Bot
   Dir.mkdir('botfiles') unless File.exist?('botfiles')
 
   # Set Prefix
-  PREFIX = ':'.freeze
+  PREFIX = ';'.freeze
 
   # Load Modules
   Dir['src/modules/*.rb'].each { |file| load file }
@@ -34,6 +34,10 @@ module Bot
 
   # Set permissions
   BOT.set_user_permission(ENV['OWNER'].to_i, 999)
+
+  Database::Permission.each do |i|
+    BOT.set_user_permission(i.discord_id, i.level)
+  end
 
   # Load all command modules
   Dir['src/modules/commands/*.rb'].each { |mod| load mod }
