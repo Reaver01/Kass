@@ -21,9 +21,7 @@ module Bot
       def info_embed
         embed = Discordrb::Webhooks::Embed.new
         embed.title = "#{item_id} #{name.titleize}"
-        embed.thumbnail = {
-          url: image
-        }
+        embed.thumbnail = { url: image }
         embed.description = ''
         embed.description += "**Description**\n#{description}\n" unless description.nil?
         unless locations.length.zero?
