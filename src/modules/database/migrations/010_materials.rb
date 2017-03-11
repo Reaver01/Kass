@@ -5,7 +5,7 @@ Sequel.migration do
       Integer :item_id
       String :name
       String :description
-      Integer :hearts, default: 0
+      Float :hearts, default: 0
       string :image
     end
   end
