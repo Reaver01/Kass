@@ -33,6 +33,8 @@ module Bot
                 embed.description += "#{m.item_id} #{m.name.titleize}\n"
               end
             end
+            embed.timestamp = Time.now
+            event.channel.send_embed 'I found this in the Hyrule Compendium:', embed
           end
         end
       end
