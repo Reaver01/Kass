@@ -18,8 +18,9 @@ module Bot
           if similar.count.zero?
             'Item not found.'
           elsif similar.count == 1
-            event.channel.send_embed 'I found this in the Hyrule Compendium:', similar.all[0].info_embed
-          else
+            event.channel.send_embed 'I found this in the Hyrule Compendium:',
+                                     similar.all[0].info_embed
+          elsif similar.count > 1
             event << 'Perhaps one of these is what you are looking for:'
             similar.each { |m| event << m.name.titleize }
             nil
@@ -42,7 +43,7 @@ module Bot
             end
             embed.timestamp = Time.now
             event.channel.send_embed 'I found this in the Hyrule Compendium:', embed
-          else
+          elsif similar.count > 1
             event << 'Perhaps one of these is what you are looking for:'
             similar.each { |m| event << m.name.titleize }
             nil
