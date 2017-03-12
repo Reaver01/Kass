@@ -47,7 +47,6 @@ module Bot
             similar.each { |m| event << m.name.titleize }
             nil
           end
-          end
         end
       end
     end
