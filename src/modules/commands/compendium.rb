@@ -15,6 +15,7 @@ module Bot
         Database::CommandLog.resolve_name('Compendium').log
         if option == 'mat'
           similar = Database::Material.where(Sequel.ilike(:name, "#{search}%"))
+          puts similar.count
           if similar.count.zero?
             'Item not found.'
           elsif similar.count == 1
