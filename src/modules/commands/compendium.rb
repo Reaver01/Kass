@@ -6,7 +6,9 @@ module Bot
     module Compendium
       extend Discordrb::Commands::CommandContainer
       command(
-        :comp
+        :comp,
+        description: 'Search something within the Hyrule Compendium. Must be spelled correctly. Case insensitive.',
+        usage: 'comp mat/loc item to be searched'
       ) do |event, option, *search|
         search = search.join(' ').downcase
         Database::CommandLog.resolve_name('Compendium').log
