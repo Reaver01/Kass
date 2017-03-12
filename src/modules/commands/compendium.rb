@@ -17,7 +17,7 @@ module Bot
           similar = Database::Creature.where(Sequel.ilike(:name, "%#{search}%"))
           if similar.count.zero?
             'Creature not found.'
-          elsif similar.count == 1
+          elsif similar.count == 1 || similar.all[0].name == search
             event.channel.send_embed 'I found this in the Hyrule Compendium:',
                                      similar.all[0].info_embed
           elsif similar.count > 1
