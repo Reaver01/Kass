@@ -14,7 +14,7 @@ module Bot
         search = search.join(' ').downcase
         Database::CommandLog.resolve_name('Compendium').log
         if option == 'mat'
-          similar = Database::Material.where(Sequel.ilike(:name, "#{search}%"))
+          similar = Database::Material.where(Sequel.ilike(:name, "%#{search}%"))
           puts similar.count
           if similar.count.zero?
             'Item not found.'
@@ -28,7 +28,7 @@ module Bot
           end
         end
         if option == 'loc'
-          similar = Database::Location.where(Sequel.ilike(:name, "#{search}%"))
+          similar = Database::Location.where(Sequel.ilike(:name, "%#{search}%"))
           if similar.count.zero?
             'Location not found.'
           elsif similar.count == 1
