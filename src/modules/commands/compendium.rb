@@ -14,7 +14,7 @@ module Bot
         search = search.join(' ').downcase
         Database::CommandLog.resolve_name('Compendium').log
         if %w(creatures creature creat).any? { |o| option.include?(o) }
-          similar = Database::Creatures.where(Sequel.ilike(:name, "%#{search}%"))
+          similar = Database::Creature.where(Sequel.ilike(:name, "%#{search}%"))
           if similar.count.zero?
             'Creature not found.'
           elsif similar.count == 1
