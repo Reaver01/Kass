@@ -15,7 +15,7 @@ module Bot
       end
 
       def remove_tag
-        update(tag_name: '13f58c236c57561845fc')
+        update(tag_name: nil, owner_id: nil)
       end
     end
   end
