@@ -45,6 +45,7 @@ module Bot
           end
         elsif args[0] == 'list'
           Database::Tag.each { |tag| event << tag.tag_name if event.user.id == tag.owner_id }
+          nil
         else
           unless Database::Tag.resolve_name(args[0]).tag_message.nil?
             Database::Tag.resolve_name(args[0]).tag_message
