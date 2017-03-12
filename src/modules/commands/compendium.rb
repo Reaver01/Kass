@@ -32,7 +32,7 @@ module Bot
             unless found_location.materials.length.zero?
               embed.description += "**Materials**\n"
               found_location.materials.each do |m|
-                embed.description += "\##{m.item_id} #{m.name.titleize}\n"
+                embed.description += "\##{m.item_id} - #{m.name.titleize}\n"
               end
             end
             embed.timestamp = Time.now
