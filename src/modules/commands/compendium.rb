@@ -29,7 +29,7 @@ module Bot
           similar = Database::Material.where(Sequel.ilike(:name, "%#{search}%"))
           if similar.count.zero?
             'Item not found.'
-          elsif similar.count == 1
+          elsif similar.count == 1 || similar.all[0].name == search
             event.channel.send_embed 'I found this in the Hyrule Compendium:',
                                      similar.all[0].info_embed
           elsif similar.count > 1
@@ -41,7 +41,7 @@ module Bot
           similar = Database::Location.where(Sequel.ilike(:name, "%#{search}%"))
           if similar.count.zero?
             'Location not found.'
-          elsif similar.count == 1
+          elsif similar.count == 1 || similar.all[0].name == search
             embed = Discordrb::Webhooks::Embed.new
             embed.title = similar.all[0].name.titleize
             embed.thumbnail = { url: similar.all[0].image }
