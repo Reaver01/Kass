@@ -12,7 +12,7 @@ module Bot
   SCHEDULER = Rufus::Scheduler.new
 
   # Load CLEVERBOT
-  CLEVERBOT = Cleverbot::Client.new ENV['CLEVERKEY']
+  CLEVER = Cleverbot::Client.new ENV['CLEVERKEY']
 
   # Load helpers
   Dir['src/helpers/*.rb'].each { |file| load file }
