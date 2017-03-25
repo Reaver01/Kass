@@ -15,8 +15,8 @@ module Bot
             ).nil? || event.channel.default?
               if BOT.parse_mention(
                 event.message.content
-              ).id == ENV['CLIENT']
-                text = event.message.content.delete("<@#{ENV['CLIENT']}>")
+              ).id == 289_862_994_169_430_016
+                text = event.message.content.delete('<@289862994169430016>')
                 event.channel.start_typing
                 sleep rand(1..3)
                 event.respond CLEVERBOT.say(text, event.user)
