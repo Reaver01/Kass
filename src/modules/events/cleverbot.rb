@@ -8,7 +8,7 @@ module Bot
           if event.message.channel.pm?
             event.channel.start_typing
             sleep rand(1..3)
-            event.respond CLEVER.say(event.message.content, event.user)
+            event.respond CLEVER.say event.message.content, event.user
           else
             unless BOT.parse_mention(
               event.message.content
@@ -19,7 +19,7 @@ module Bot
                 text = event.message.content.delete('<@289862994169430016>')
                 event.channel.start_typing
                 sleep rand(1..3)
-                event.respond CLEVER.say(text, event.user)
+                event.respond CLEVER.say text, event.user
               end
             end
           end

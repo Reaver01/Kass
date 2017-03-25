@@ -1,8 +1,8 @@
 require 'bundler/setup'
-require 'cleverbot'
 require 'discordrb'
 require 'discordrb/data'
 require 'dotenv'
+require 'cleverbot'
 require 'fileutils'
 require 'rufus-scheduler'
 
