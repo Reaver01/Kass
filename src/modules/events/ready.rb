@@ -5,7 +5,7 @@ module Bot
       extend Discordrb::EventContainer
       ready do |_event|
         # Set game text
-        BOT.game = 'the Accordian'
+        BOT.game = 'the accordion'
 
         # Tell the console BOT is ready
         puts 'BOT Ready!'
