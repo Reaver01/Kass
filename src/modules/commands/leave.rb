@@ -16,7 +16,7 @@ module Bot
           "The role #{role_name} does not exist on the server."
         elsif Database::Role.resolve_id(server_role.id).user_can_add
           event.user.remove_role(server_role)
-          "You have been added to #{role_name}."
+          "You have been removed from #{role_name}."
         else
           "#{role_name} cannot be joined."
         end
